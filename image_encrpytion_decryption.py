@@ -28,12 +28,18 @@ def process_image(img_path, key, mode="encrypt"):
     return img
 
 def save_image(img, suffix="_encrypted"):
+    # Define the full save folder path
+    save_folder = r"S:\Project\Skill Craft Task\Image-Encryption\outputs"
+    os.makedirs(save_folder, exist_ok=True)  # Make sure outputs folder exists
+    
     base, ext = os.path.splitext(os.path.basename(img_path))
-    new_path = f"{base}{suffix}{ext}"
+    new_path = os.path.join(save_folder, f"{base}{suffix}{ext}")
+    
     counter = 1
     while os.path.exists(new_path):
-        new_path = f"{base}{suffix}_{counter}{ext}"
+        new_path = os.path.join(save_folder, f"{base}{suffix}_{counter}{ext}")
         counter += 1
+
     img.save(new_path)
     messagebox.showinfo("Saved", f"Image saved as {new_path}")
 
