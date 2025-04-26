@@ -1,4 +1,5 @@
-Image Encryption Tool
+# Image Encryption Tool
+
 This is a simple desktop application for image encryption and decryption using XOR operations combined with RGB channel shuffling, built with Python and Tkinter.
 Developed for SkillCraft Technology - Task 02.
 
